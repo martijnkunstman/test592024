@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test 5-9-2024</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
+  </head>
+  <body>
+    test 5-9-2024
+    <script>
+      let achtergrondkleur = "red";
+      let hoevaakopentergedrukt = 0;
+      let magbewegen = true;
+
+      function setup() {
+        createCanvas(500, 500);
+      }
+
+      let zonPositie = -50;
+
+      
+
+      function draw() {
+        if (magbewegen) {
+          zonPositie = zonPositie + 2;
+        }
+
+        if (zonPositie > 550) {
+          zonPositie = -50;
+        }
+
+        background(achtergrondkleur);
+
+        fill("yellow");
+
+        circle(zonPositie, 200, 50);
+
+        textSize(32);
+        text(hoevaakopentergedrukt, 50, 50);
+      }
+
+      function keyPressed() {
+        if (keyCode === ENTER) {
+          // Code to run.
+          console.log("Enter is ingedrukt");
+          hoevaakopentergedrukt = hoevaakopentergedrukt + 1;
+          if (magbewegen) {
+            magbewegen = false;
+            achtergrondkleur = "blue";
+          } else {
+            magbewegen = true;
+            achtergrondkleur = "red";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

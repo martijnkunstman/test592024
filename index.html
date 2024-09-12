@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>test 5-9-2024</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     test 5-9-2024
     <script>
+      function setup() {
+        createCanvas(800, 800);
+      }
 
-        function setup() {
-            createCanvas(400, 400);
-            background(0);
+      let XpositieVandeVrachtauto = -100;
+
+      function tekenAUto(x,y, kleur)
+      {
+        fill(kleur);
+        square(100 + x, 100+y, 100);
+        square(200 + x, 150+y, 50);
+
+        fill("black");
+        circle(125 + x, 200+y, 25);
+        circle(200 + x, 200+y, 25);
+      }
+
+      function draw() {
+        background("lightblue");
+
+        fill("black");
+        textSize(50);
+        text(XpositieVandeVrachtauto, 10, 50);
+
+        XpositieVandeVrachtauto = XpositieVandeVrachtauto + 0.1;
+
+        if (XpositieVandeVrachtauto > 100) {
+          XpositieVandeVrachtauto = -100;
         }
 
-        function draw() {
+        fill("red");
+        square(100 + XpositieVandeVrachtauto, 100, 100);
+        square(200 + XpositieVandeVrachtauto, 150, 50);
 
+        fill("black");
+        circle(125 + XpositieVandeVrachtauto, 200, 25);
+        circle(200 + XpositieVandeVrachtauto, 200, 25);
 
+        fill("blue");
+        square(100 + XpositieVandeVrachtauto*2, 300, 100);
+        square(200 + XpositieVandeVrachtauto*2, 350, 50);
 
-            fill(255);
-            ellipse(100, 100, 80, 80);
-            
-            fill("red");
-            rect(200, 150, 150, 50);
+        fill("black");
+        circle(125 + XpositieVandeVrachtauto*2, 400, 25);
+        circle(200 + XpositieVandeVrachtauto*2, 400, 25);
 
-            fill("white");
-            rect(200, 200, 150, 50);            
-            
-            fill("blue");        
-            rect(200, 250, 150, 50);
+        tekenAUto(XpositieVandeVrachtauto*1.5,300, "yellow")
 
-        }
+        tekenAUto(XpositieVandeVrachtauto*1.5,500, "purple")
 
-        </script>
-</body>
+      }
+    </script>
+  </body>
 </html>
