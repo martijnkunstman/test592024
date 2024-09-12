@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test 5-9-2024</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
+  </head>
+  <body>
+    test 5-9-2024
+    <script>
+
+      let kleurVanHetStoplicht = "groen";
+      let snelheid = 1;
+      let positieVanAuto = 0;
+
+      function setup() {
+        createCanvas(500, 500);
+      }
+
+      function draw() {
+        background("lightblue");
+        fill("white");
+        rect(200, 200, 100, 200);
+        //
+        if (kleurVanHetStoplicht == "rood") {
+          fill("red");
+          circle(250, 250, 50);
+          //
+        }
+        if (kleurVanHetStoplicht == "geel") {
+          fill("yellow");
+          circle(250, 300, 50);
+        }
+        //
+        if (kleurVanHetStoplicht == "groen") {
+          fill("green");
+          circle(250, 350, 50);
+        }
+        textSize(32);
+
+        positieVanAuto = positieVanAuto + snelheid;
+
+        if(positieVanAuto > 500){
+          positieVanAuto = 0;
+        }
+        
+        text(positieVanAuto,50,50)
+
+        square(positieVanAuto,100,50)
+
+        //
+      }
+
+      function keyPressed() {
+        if (keyCode === ENTER) {
+          // Code to run
+          if (kleurVanHetStoplicht == "geel") {
+            kleurVanHetStoplicht = "rood";
+            snelheid = 0;
+          } else {
+            if (kleurVanHetStoplicht == "groen") {
+              kleurVanHetStoplicht = "geel";
+              snelheid = 0.5;
+            }
+            if (kleurVanHetStoplicht == "rood") {
+              kleurVanHetStoplicht = "groen";
+              snelheid = 1;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
